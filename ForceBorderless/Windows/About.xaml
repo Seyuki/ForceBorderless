@@ -1,0 +1,113 @@
+﻿<metro:MetroWindow x:Class="ForceBorderless.Windows.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:ForceBorderless.Windows"
+        mc:Ignorable="d"
+        UseLayoutRounding="True"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        BorderThickness="1" WindowStartupLocation="CenterOwner"
+        Title="{DynamicResource WindowTitle}" TitleCaps="False"
+        Icon="/ForceBorderless;component/Resources/icon.ico" ShowIconOnTitleBar="False"
+        Height="380" Width="449" ShowInTaskbar="False" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/About.Dictionary.xaml"/>
+                <ResourceDictionary Source="/Localization/About.en-US.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+
+            <RowDefinition Height="10"/>
+
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+
+            <RowDefinition Height="10"/>
+
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Block Author-->
+        <TextBlock Grid.Row="0" Text="{DynamicResource DeveloppedBy}" Style="{StaticResource Title}"/>
+        <TextBlock Grid.Row="1" Text="Thomas Ferrone" Style="{StaticResource AboutTextBlock}"/>
+
+        <!--Block Version-->
+        <TextBlock Grid.Row="0" Grid.Column="2" Text="Version" Style="{StaticResource Title}"/>
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Version}" Style="{StaticResource AboutTextBlock}"/>
+
+        <!--Block Icon-->
+        <TextBlock Grid.Row="3" Grid.ColumnSpan="3" Text="{DynamicResource IconBy}" Style="{StaticResource Title}"/>
+        <TextBlock Grid.Row="4" Grid.ColumnSpan="3" Text="" Style="{StaticResource AboutTextBlock}"/>
+        <TextBlock Grid.Row="5" Grid.ColumnSpan="3" Text="" Style="{StaticResource License}"/>
+
+        <!--Block Libraries-->
+        <TextBlock Grid.Row="7" Grid.ColumnSpan="3" Text="{DynamicResource LibrariesUsed}" Style="{StaticResource Header}"/>
+
+        <!--Block MaterialDesign-->
+        <TextBlock Grid.Row="9" Text="MaterialDesignInXaml" ToolTip="https://github.com/ButchersBoy/MaterialDesignInXamlToolkit" Style="{StaticResource ClickableTitle}">
+            <TextBlock.InputBindings>
+                <MouseBinding Command="{Binding GoToCommand}" CommandParameter="https://github.com/ButchersBoy/MaterialDesignInXamlToolkit" MouseAction="LeftClick" />
+            </TextBlock.InputBindings>
+        </TextBlock>
+        <TextBlock Grid.Row="10" Style="{StaticResource AboutTextBlock}">Copyright (c) James Willock,<LineBreak/>Mulholland Software and Contributors</TextBlock>
+        <TextBlock Grid.Row="11" Text="MIT License (MIT)" Style="{StaticResource License}"/>
+
+        <!--Block MahApps-->
+        <TextBlock Grid.Row="9" Grid.Column="2" Text="MahApps.Metro" ToolTip="https://github.com/MahApps/MahApps.Metro" Style="{StaticResource ClickableTitle}">
+            <TextBlock.InputBindings>
+                <MouseBinding Command="{Binding GoToCommand}" CommandParameter="https://github.com/MahApps/MahApps.Metro" MouseAction="LeftClick" />
+            </TextBlock.InputBindings>
+        </TextBlock>
+        <TextBlock Grid.Row="10" Grid.Column="2" Text="Copyright (c) 2016 MahApps" Style="{StaticResource AboutTextBlock}"/>
+        <TextBlock Grid.Row="11" Grid.Column="2" Text="MIT License (MIT)" Style="{StaticResource License}"/>
+
+        <!--Block Fody-->
+        <TextBlock Grid.Row="13" Text="Fody" ToolTip="https://github.com/Fody/Fody" Style="{StaticResource ClickableTitle}">
+            <TextBlock.InputBindings>
+                <MouseBinding Command="{Binding GoToCommand}" CommandParameter="https://github.com/Fody/Fody" MouseAction="LeftClick" />
+            </TextBlock.InputBindings>
+        </TextBlock>
+        <TextBlock Grid.Row="14" Style="{StaticResource AboutTextBlock}">Copyright (c) Simon Cropp<LineBreak/>and contributors</TextBlock>
+        <TextBlock Grid.Row="15" Text="MIT License (MIT)" Style="{StaticResource License}"/>
+
+        <!--Block Fody.Costura-->
+        <TextBlock Grid.Row="13" Grid.Column="2" Text="Fody.Costura" ToolTip="https://github.com/Fody/Costura" Style="{StaticResource ClickableTitle}">
+            <TextBlock.InputBindings>
+                <MouseBinding Command="{Binding GoToCommand}" CommandParameter="https://github.com/Fody/Costura" MouseAction="LeftClick" />
+            </TextBlock.InputBindings>
+        </TextBlock>
+        <TextBlock Grid.Row="14" Grid.Column="2" Style="{StaticResource AboutTextBlock}">Copyright (c) 2012 Simon Cropp<LineBreak/>and contributors</TextBlock>
+        <TextBlock Grid.Row="15" Grid.Column="2" Text="MIT License (MIT)" Style="{StaticResource License}"/>
+    </Grid>
+</metro:MetroWindow>

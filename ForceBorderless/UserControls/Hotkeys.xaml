@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="ForceBorderless.UserControls.Hotkeys"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    
+    <!--UserControl resources-->
+    <UserControl.Resources>
+        <!--Dictionaries-->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Hotkeys.Dictionary.xaml"/>
+                <ResourceDictionary Source="/Localization/Hotkeys.en-US.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <GroupBox Header="{DynamicResource Hotkeys}">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Ctrl + F11" Style="{DynamicResource Hotkey}"/>
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="{DynamicResource Manual}"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Ctrl + F12" Style="{DynamicResource Hotkey}"/>
+                <TextBlock Grid.Row="2" Grid.Column="2" Text="{DynamicResource Auto}"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

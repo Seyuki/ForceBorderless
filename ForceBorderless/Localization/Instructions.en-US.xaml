@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="ResourceDictionaryName">Loc-en-US</system:String>
+
+    <system:String x:Key="Instructions">Instructions</system:String>
+
+    <system:String x:Key="Windowed">Application must be in windowed mode (not fullscreen)!</system:String>
+
+    <system:String x:Key="ManualTitle">Manual mode</system:String>
+    <system:String x:Key="ManualText_1">Use the manual hotkey to switch to borderless style.</system:String>
+    <system:String x:Key="ManualText_2">You can restore the default style by pressing the hotkey again.</system:String>
+
+    <system:String x:Key="AutoTitle">Automatic mode</system:String>
+    <system:String x:Key="AutoText_1">Processes in the whitelist will be automatically handled.</system:String>
+    <system:String x:Key="AutoText_2">You can add a process in the whitelist by :</system:String>
+    <system:String x:Key="AutoText_3">• manually entering process name, then pressing 'Add'</system:String>
+    <system:String x:Key="AutoText_4">• using the automatic hotkey when the application to add is running in the foreground</system:String>
+</ResourceDictionary>

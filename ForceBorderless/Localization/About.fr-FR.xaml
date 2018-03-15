@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="ResourceDictionaryName">Loc-fr-FR</system:String>
+
+    <system:String x:Key="WindowTitle">À propos</system:String>
+
+    <system:String x:Key="DeveloppedBy">Développé par</system:String>
+    <system:String x:Key="IconBy">Icone par</system:String>
+    <system:String x:Key="LibrariesUsed">Bibliothèques utilisées</system:String>
+</ResourceDictionary>

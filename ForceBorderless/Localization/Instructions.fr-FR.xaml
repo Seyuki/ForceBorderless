@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="ResourceDictionaryName">Loc-fr-FR</system:String>
+
+    <system:String x:Key="Instructions">Instructions</system:String>
+
+    <system:String x:Key="Windowed">L'application doit être en mode fenêtré (et non plein écran) !</system:String>
+
+    <system:String x:Key="ManualTitle">Mode manuel</system:String>
+    <system:String x:Key="ManualText_1">Utilisez le raccourcis manuel pour passer en mode sans-bord.</system:String>
+    <system:String x:Key="ManualText_2">Vous pouvez revenir au style par défaut en ré-utilisant le raccourcis.</system:String>
+
+    <system:String x:Key="AutoTitle">Mode automatique</system:String>
+    <system:String x:Key="AutoText_1">Les processus présents dans la liste blanche seront automatiquement traités.</system:String>
+    <system:String x:Key="AutoText_2">Vous pouvez ajouter un processus à la liste en :</system:String>
+    <system:String x:Key="AutoText_3">• renseignant manuellement son nom, puis en appuyant sur 'Ajouter'</system:String>
+    <system:String x:Key="AutoText_4">• utilisant le raccourcis automatique lorsque l'application à ajouter est au premier plan</system:String>
+</ResourceDictionary>
