@@ -17,6 +17,7 @@
     <system:String x:Key="Process">Process</system:String>
     <system:String x:Key="ProcessName">Process name</system:String>
     <system:String x:Key="Add">Add</system:String>
+    <system:String x:Key="Force169">Force 16:9 ratio</system:String>
     <system:String x:Key="Autostart">Start with Windows</system:String>
     
     <!--Snackbar-->

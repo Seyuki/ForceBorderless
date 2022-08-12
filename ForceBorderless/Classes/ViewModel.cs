@@ -20,6 +20,11 @@ namespace ForceBorderless.Classes
         #region Properties
 
         /// <summary>
+        /// Force 16:9 ratio flag
+        /// </summary>
+        private bool _Force169;
+
+        /// <summary>
         /// Auto start with windows flag
         /// </summary>
         private bool _AutoStart;
@@ -57,6 +62,20 @@ namespace ForceBorderless.Classes
         #endregion Properties
 
         #region Accessors
+
+        /// <summary>
+        /// Force 16:9 ratio flag
+        /// </summary>
+        public bool Force169
+        {
+            get { return _Force169; }
+            set
+            {
+                _Force169 = value;
+                OnPropertyChanged("Force169");
+                WindowHandler.Force169 = value;
+            }
+        }
 
         /// <summary>
         /// Auto start with windows flag
@@ -192,7 +211,7 @@ namespace ForceBorderless.Classes
             this._keys = new List<Key>();
             this._KListener = new KeyboardListener();
 
-            Settings.LoadWhitelist(this._Processes);
+            Settings.Load(this);
 
             // Start process listener thread
             WindowHandler.StartListener(this.Processes);

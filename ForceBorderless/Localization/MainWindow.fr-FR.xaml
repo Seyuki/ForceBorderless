@@ -17,6 +17,7 @@
     <system:String x:Key="Process">Processus</system:String>
     <system:String x:Key="ProcessName">Nom du processus</system:String>
     <system:String x:Key="Add">Ajouter</system:String>
+    <system:String x:Key="Force169">Forcer le ratio 16:9</system:String>
     <system:String x:Key="Autostart">Démarrer avec Windows</system:String>
 
     <!--Snackbar-->

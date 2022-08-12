@@ -15,6 +15,7 @@ namespace ForceBorderless.Classes
         #region Fields
 
         private static string _SettingsPath = @"Seyuki\ForceBorderless";
+        private static string _SettingsFile = "config.txt";
         private static string _WhitelistName = "whitelist.txt";
         private static string _LogsName = "logs.txt";
 
@@ -94,6 +95,53 @@ namespace ForceBorderless.Classes
         }
 
         /// <summary>
+        /// Load application configuration
+        /// </summary>
+        /// <param name="viewModel">Main view model</param>
+        public static void LoadConfig(ViewModel viewModel)
+        {
+            // Get entire path of whitelist file
+            string ConfigFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), _SettingsPath, _SettingsFile);
+
+            // Checking if configuration file exists
+            if (File.Exists(ConfigFile))
+            {
+                // Read file
+                using (StreamReader sr = new StreamReader(ConfigFile))
+                {
+                    while (sr.Peek() >= 0)
+                    {
+                        string[] option = sr.ReadLine().Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
+                        if (option.Length != 2) continue;
+                        if (option[0] == "Force16:9")
+                        {
+                            viewModel.Force169 = option[1] == "1";
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Save application configuration
+        /// </summary>
+        /// <param name="viewModel">Main view model</param>
+        public static void SaveConfig(ViewModel viewModel)
+        {
+            // Create directory if not exists
+            Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), _SettingsPath));
+
+            // Get entire path of configuration file
+            string ConfigFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), _SettingsPath, _SettingsFile);
+
+            // Write options
+            using (StreamWriter writer = new StreamWriter(ConfigFile))
+            {
+                writer.WriteLine("Force16:9=" + (viewModel.Force169 ? "1" : "0"));
+            }
+        }
+
+        /// <summary>
         /// Load processes whitelist stocked on disk in the collection
         /// </summary>
         /// <param name="Whitelist">Collection to fill</param>
@@ -136,6 +184,26 @@ namespace ForceBorderless.Classes
                     writer.WriteLine(Process.Name);
                 }
             }
+        }
+
+        /// <summary>
+        /// Load application configuration and whitelist
+        /// </summary>
+        /// <param name="viewModel">Main view model</param>
+        public static void Load(ViewModel viewModel)
+        {
+            Settings.LoadConfig(viewModel);
+            Settings.LoadWhitelist(viewModel.Processes);
+        }
+
+        /// <summary>
+        /// Save application configuration and whitelist
+        /// </summary>
+        /// <param name="viewModel">Main view model</param>
+        public static void Save(ViewModel viewModel)
+        {
+            Settings.SaveConfig(viewModel);
+            Settings.SaveWhitelist(viewModel.Processes);
         }
 
         /// <summary>

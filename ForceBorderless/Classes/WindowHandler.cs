@@ -48,6 +48,11 @@ namespace ForceBorderless.Classes
         /// </summary>
         private static ObservableCollection<ProcessInfos> _Whitelist;
 
+        /// <summary>
+        /// Force 16:9 ratio flag
+        /// </summary>
+        public static bool Force169;
+
         #endregion Properties & Fields
 
         #region Methods
@@ -177,8 +182,17 @@ namespace ForceBorderless.Classes
                     WindowLib.SetWindowLong(hWndGame, WindowLib.GWL_STYLE, (actStyle & ~WindowLib.WS_CAPTION & ~WindowLib.WS_THICKFRAME & ~WindowLib.WS_SYSMENU & ~WindowLib.WS_MINIMIZE & ~WindowLib.WS_MAXIMIZEBOX));
 
                     // Changing window dimension and location
-                    WindowLib.MoveWindow(hWndGame, 0, 0, (int)SystemParameters.PrimaryScreenWidth, (int)SystemParameters.PrimaryScreenHeight, true);
-
+                    if (WindowHandler.Force169)
+                    {
+                        int width = (int)SystemParameters.WorkArea.Height / 9 * 16;
+                        int xPos = ((int)SystemParameters.WorkArea.Width - width) / 2;
+                        WindowLib.MoveWindow(hWndGame, xPos, 0, width, (int)SystemParameters.PrimaryScreenHeight, true);
+                    }
+                    else
+                    {
+                        WindowLib.MoveWindow(hWndGame, 0, 0, (int)SystemParameters.PrimaryScreenWidth, (int)SystemParameters.PrimaryScreenHeight, true);
+                    }
+                    
                     // Write info to logs
                     Settings.WriteInLogs(Settings.ErrorCategory.INFO, mode, $"Successfully handled '{WindowLib.GetProcessName(hWndGame)}'!");
                 }

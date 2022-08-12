@@ -106,7 +106,7 @@ namespace ForceBorderless
             WindowHandler.StopListener();
 
             // Saves processes whitelist
-            Settings.SaveWhitelist(viewModel.Processes);
+            Settings.Save(viewModel);
         }
 
         #endregion Window events
