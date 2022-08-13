@@ -186,7 +186,7 @@ namespace ForceBorderless.Classes
                     {
                         int width = (int)SystemParameters.WorkArea.Height / 9 * 16;
                         int xPos = ((int)SystemParameters.WorkArea.Width - width) / 2;
-                        WindowLib.MoveWindow(hWndGame, xPos, 0, width, (int)SystemParameters.PrimaryScreenHeight, true);
+                        WindowLib.MoveWindow(hWndGame, xPos, 0, width, (int)SystemParameters.WorkArea.Height, true);
                     }
                     else
                     {
